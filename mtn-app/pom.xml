@@ -7,25 +7,19 @@
   <name>mtn-web</name>
   <description>mtn-web</description>
   <properties>
-  <mtn-common-version>0.0.1-SNAPSHOT</mtn-common-version>
-  <mtn-core-version>0.0.1-SNAPSHOT</mtn-core-version>
-  <mtn-web-version>0.0.1-SNAPSHOT</mtn-web-version>
+  <mtn-core.version>0.0.1-SNAPSHOT</mtn-core.version>
+  <mtn-web.version>0.0.1-SNAPSHOT</mtn-web.version>
   </properties>
   <dependencies>
   <dependency>
   <artifactId>mtn-core</artifactId>
   <groupId>com.mtn.core</groupId>
-  <version>${mtn-core-version}</version>
-  </dependency>
-  <dependency>
-  <artifactId>mtn-common</artifactId>
-  <groupId>com.mtn.common</groupId>
-  <version>${mtn-common-version}</version>
-  </dependency>
+  <version>${mtn-core.version}</version>
+  </dependency>	
   <dependency>
   <artifactId>mtn-web</artifactId>
   <groupId>com.mtn.web</groupId>
-  <version>${mtn-web-version}</version>
+  <version>${mtn-web.version}</version>
   </dependency>
   </dependencies>
   <build>

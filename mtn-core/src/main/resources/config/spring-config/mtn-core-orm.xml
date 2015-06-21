@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName" default-lazy-init="true">
+    <context:component-scan base-package="com.mtn" />
+    <context:annotation-config />
+    <bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations"
+			value="classpath:/mtn.properties" />
+	</bean>
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+
+		<property name="driverClassName" value="${dev.mtn.mysql.jdbc.driver}" />
+		<property name="url" value="${dev.mtn.mysql.jdbc.url}" />
+		<property name="username" value="${dev.mtn.mysql.jdbc.user.name}" />
+		<property name="password" value="${dev.mtn.mysql.jdbc.user.password}" />
+		<property name="maxIdle" value="10" />
+		<property name="maxActive" value="15" />
+		<property name="initialSize" value="15" />
+		<property name="validationQuery" value="select 1" />
+		<property name="testOnBorrow" value="true" />
+		<property name="minEvictableIdleTimeMillis" value="30000" />
+		<property name="timeBetweenEvictionRunsMillis" value="5000" />
+	</bean>
+
+	<bean id="sessionFactory" autowire="default"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+			<value>config/hbm-config/Role.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5Dialect
+				</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+		<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+         </bean>
+</beans>
