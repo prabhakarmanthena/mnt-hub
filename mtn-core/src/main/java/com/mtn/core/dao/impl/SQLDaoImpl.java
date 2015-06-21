@@ -15,7 +15,7 @@ import com.mtn.core.dao.SQLDao;
  * @author Prabhakar Manthena
  *
  */
- class SQlDaoImpl implements SQLDao {
+ class SQLDaoImpl implements SQLDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;

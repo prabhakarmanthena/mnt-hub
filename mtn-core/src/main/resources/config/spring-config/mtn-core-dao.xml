@@ -7,4 +7,5 @@
     <context:component-scan base-package="com.mtn" />
     <context:annotation-config />
     <bean id="roleDao" class="com.mtn.core.dao.impl.RoleDaoImpl" autowire="default" />
+    <bean id="sqlDao" class="com.mtn.core.dao.impl.SQLDaoImpl" autowire="default" /> 
 </beans>
