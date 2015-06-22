@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mtn.core.domain.Role;
+import com.mtn.core.domain.MtnRole;
 @TransactionConfiguration(defaultRollback = true)
 @ContextConfiguration({ "classpath:/application-core-context.xml" })
 @Transactional  
@@ -20,7 +20,7 @@ public class SQlDaoTest {
 	private SQLDao sqlDao;
 	@Test
 	public void testFindBySqlQuery() {
-		System.out.println(sqlDao.findBySqlQuery("select role_id,role_name from mtn_role", Role.class));
+		System.out.println(sqlDao.findBySqlQuery("select role_id,role_name from mtn_role", MtnRole.class));
 	}
 
 }

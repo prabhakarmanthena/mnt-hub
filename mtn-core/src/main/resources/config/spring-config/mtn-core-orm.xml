@@ -32,7 +32,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mappingResources">
 			<list>
-			<value>config/hbm-config/Role.hbm.xml</value>
+			<value>config/hbm-config/MtnRole.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
